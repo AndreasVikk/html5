@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML5 - Tailwind Struktuur</title>
+    <title>HTML5 - TailwindCSS.com Struktuur</title>
 <style>
 * {
   margin: 0;
@@ -12,7 +12,7 @@
 }
 .skip-link {
   position: absolute;
-  left: -999px;    /* peidus ekraani väljas */
+  left: -999px; /* peidus ekraani väljas */
   top: 0;
   background: #000;
   color: #fff;
@@ -21,7 +21,7 @@
 }
 
 .skip-link:focus {
-  left: 0;         /* ilmub nähtavale */
+  left: 0; /* ilmub nähtavale */
 }
 body {
   display: grid;
@@ -165,7 +165,7 @@ footer {
   }
   #pohisisu {
     display: block;
-    width: 100%;       /* täidab kogu sisu laiuse */
+    width: 100%; /* täidab kogu sisu laiuse */
     height: auto;
     top: 20px;
     
@@ -174,21 +174,21 @@ footer {
   #pohisisu-artikkel,
   #pohisisu-artikkel2 {
     width: calc(100% - 40px); /* 20px mõlemalt poolt */
-    margin: 10px 20px;        /* väike sisemine vahe ekraani servadest */
+    margin: 10px 20px; /* väike sisemine vahe ekraani servadest */
     height: auto;
     min-height: 100px;
-    margin-left: 20px;        /* eemaldame negatiivse nihke */
+    margin-left: 20px; /* eemaldame negatiivse nihke */
     margin-top: 10px;
   }
 
   #grid-sektsioon {
-    grid-template-columns: 1fr;         /* kõik kastid üksteise alla */
-    grid-template-rows: auto;           /* automaatne kõrgus */
+    grid-template-columns: 1fr; /* kõik kastid üksteise alla */
+    grid-template-rows: auto; /* automaatne kõrgus */
     margin-top: 20px;
 }
 
   .grid-item {
-    height: 120px;                       /* väiksem kõrgus väikestel ekraanidel */
+    height: 120px; /* väiksem kõrgus väikestel ekraanidel */
   }
 }
 
@@ -207,6 +207,7 @@ footer {
 <section id="herosektsioon"><h1>&nbsp;</h1></section>
 <main id="main">
     <section id="pohisisu">
+      
         <article id="pohisisu-artikkel">
            <h3>&nbsp;</h3>
         </article>
@@ -215,6 +216,7 @@ footer {
         </article>
     </section>
 <section id="grid-sektsioon">
+  
   <div class="grid-item"></div>
   <div class="grid-item"></div>
   <div class="grid-item"></div>

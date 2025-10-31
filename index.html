@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 - Tailwind Struktuur</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.skip-link {
+  position: absolute;
+  left: -999px;    /* peidus ekraani väljas */
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 12px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 0;         /* ilmub nähtavale */
+}
+body {
+  display: grid;
+  grid-template-columns: 220px 50px 1fr 50px 280px;
+
+}
+
+nav {
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+}
+
+#logo {
+  width: 160px;
+  height: 30px;
+  border: 1px solid #000;
+}
+
+#menyy {
+  width: 260px;
+  height: 40px;
+  border: 1px solid #000;
+}
+#vasakjoon {
+     
+  position: fixed;
+  width: 50px;
+  top: 60px;
+  height: calc(100vh - 60px);
+  left: 220px;
+  border: 1px solid #000;
+  grid-column: 2;
+}
+
+#paremjoon {
+  position: fixed;
+  width: 50px;
+  top: 60px;
+  height: calc(100vh - 60px);
+  right: 280px;
+  border: 1px solid #000;
+    grid-column: 4;
+}
+
+#herosektsioon {
+  position: relative;
+  margin-top: 65px; /* et navbar ei kattuks */
+  left: 50px;
+  height: 200px;
+  width: calc(100vw - 600px);
+  border: 1px solid #000;
+}
+
+#pohisisu {
+  position: relative;
+  top: 270px;
+  width: calc(100vw - 600px);
+  height: 250px;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* kaks veergu */
+  gap: 10px; /* vahe kastide vahel */
+}
+
+#pohisisu-artikkel {
+  border: 1px solid black;
+  height: 100%;
+}
+
+#pohisisu-artikkel2 {
+  border: 1px solid black;
+  height: 80%;       /* natuke väiksem kui vasak kast */
+  margin-top: 20px;  /* veidi allapoole */
+  margin-left: -50px; /* liigub vasakule ja katab osa vasakust kastist */
+  
+}
+
+#grid-sektsioon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 veergu */
+  grid-template-rows: repeat(4, 150px);  /* 4 rida */
+  gap: 10px;                             /* kastide vahe */
+  padding: 20px;
+  margin-top: 275px;
+}
+
+.grid-item {
+
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+footer {
+  height: 50px;
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+/* Muutuv suurus */ 
+@media (max-width: 768px) {
+  body {
+    display: block; /* kõik elemendid virnastuvad */
+  }
+
+  /* Peidame ribad */
+  #vasakjoon,
+  #paremjoon {
+    display: none;
+  }
+
+  /* Navbar virnastub */
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem;
+  }
+
+  /* Hero täislaiuses */
+  #herosektsioon {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: auto;
+    left: 0;
+  }
+
+  /* Logo ja menüü saab vajadusel täislaiusesse */
+  #logo, #menyy {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  #pohisisu {
+    display: block;
+    width: 100%;       /* täidab kogu sisu laiuse */
+    height: auto;
+    top: 20px;
+    
+  }
+
+  #pohisisu-artikkel,
+  #pohisisu-artikkel2 {
+    width: calc(100% - 40px); /* 20px mõlemalt poolt */
+    margin: 10px 20px;        /* väike sisemine vahe ekraani servadest */
+    height: auto;
+    min-height: 100px;
+    margin-left: 20px;        /* eemaldame negatiivse nihke */
+    margin-top: 10px;
+  }
+
+  #grid-sektsioon {
+    grid-template-columns: 1fr;         /* kõik kastid üksteise alla */
+    grid-template-rows: auto;           /* automaatne kõrgus */
+    margin-top: 20px;
+}
+
+  .grid-item {
+    height: 120px;                       /* väiksem kõrgus väikestel ekraanidel */
+  }
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<aside id="vasakjoon"></aside>
+<aside id="paremjoon"></aside>
+<header>
+    <nav>
+     <div id="logo"></div>
+     <div id="menyy"></div>
+    </nav>
+</header>
+<section id="herosektsioon"><h1>&nbsp;</h1></section>
+<main id="main">
+    <section id="pohisisu">
+        <article id="pohisisu-artikkel">
+           <h3>&nbsp;</h3>
+        </article>
+        <article id="pohisisu-artikkel2">
+           <h3>&nbsp;</h3>
+        </article>
+    </section>
+<section id="grid-sektsioon">
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+</section>
+<footer></footer>
+</main>
+
+</body>
+</html>
